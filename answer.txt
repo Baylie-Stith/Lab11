@@ -1,0 +1,20 @@
+1. Yes, the problem is in the for loop. The loop starts at index 1 not index 0. This means 
+the program skips the first lecture when it counts absences.
+
+2. A test case that doesn't execute the faults is when the first lecture is marked 1.
+{1, 1, 1, 1, 1, 1, 1, 0, 0, 0}
+Since the first lecture has no absences it doesn't affect the count of absences.
+
+3. I can use the same case as before. Since the student was present in the first lecture 
+the resulting absent count isn't wrong however, it doesn't techincally consider this lecture.
+Therefore, a fault is executed but no error state occurs.
+
+4. {0, 1, 1, 1, 1, 1, 1, 1, 0, 1}
+In this case the expected count is two but what we get is a 1. This is because the program
+doesn't count the first lecture in its absent count. However, in this case the student still
+has under 3 absences so the program does correctly determine that the student passes. Meaning
+as error state occures but no failure does.
+
+5. {0, 1, 1, 1, 1, 1, 1, 0, 0, 1}
+In this case the student has 3 absences and thus fails the class. However, the program only
+counts 2 of them and incorecctly states that the student passes and thus produces a failure.
